@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" media="screen" href="chatbot.css">
+
+<title>Chatbot v.1.nh</title>
+
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+<div id="chatGame">
+	
+<p><strong>Welcome to my Chatbot, his name is Ivan. <br/>Below is a list of phrases and questions<br/> that Ivan recognizes and will respond to.</strong></p>
+<br/>
+<p>Hi Ivan. • Where do you live? • How's the weather? • What is 40 + 1?</p>
+<br/>		
+<input type="text" id="chat" />
+<br/><br/>
+<button onclick="cresponse()">Get response</button>
+<br/>
+<p id="resp"></p>
+	
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>		
+
+//Question and answer arrays - arrays within an array
+
+var qAArr = [
+["Hi Ivan.", ["Hello.", "I'm not available right now, try again later.", "It's naptime, try again later."]],
+
+["Where do you live?", ["40.0150° N, 105.2705° W.", "Where the air is thin.", "Who wants to know?"]],
+
+["How's the weather?", ["Too hot!", "It's not snowing, I'm not happy.", "Is winter here yet?"]],
+	
+["What is 40 + 1?", ["no idea", 41, "What is this, a quiz?"]]
+];
+		
+//variable response to be displayed when a phrase isn't recognized 	
+var response = "Sorry, I didn't recognize that phrase. Please enter another.";
+	
+//function cresponse that takes in parameter qAArr	
+function cresponse (qAArr){
+	
+//varialbe userInput is equal to the GetElementById with id of resp
+var userInput = document.getElementById("resp").value;
+	
+//for loop where if i is equal to 0 and i is less than the length of qAArr, then increment 1
+for(var i = 0; i<qAArr.length; i++){
+
+//and if qAArr index position 0 is equal to userInput, display random response
+if(qAArr[0][i] == userInput){
+
+//response is equal to the object shuffle and displays one of three answers randomly
+response = function shuffle()qAArr[1][1,2,3];
+
+//display varialbe cresponse in them element with id chatGame 
+document.getElementById("chatGame").innerHTML = cresponse;
+return;
+}
+}
+//otherwise display variable response in the element with id chatGame
+else{document.getElementById("chatGame").innerHTML = response;
+}
+};
+	
+
+
+
+</script>
+
+</body>
+
+</html>
